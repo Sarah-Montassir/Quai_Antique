@@ -1,10 +1,13 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+        <link rel="stylesheet" href="https://bootswatch.com/5/sandstone/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -14,6 +17,45 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand ms-4" href="#">
+                    <img src="{{ asset('images/logo.png') }}" width="30" height="30" alt="Logo">
+                </a>
+                <a class="navbar-brand ms-4" href="{{path('home')}}">Quai Antique</a>
+                <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active me-2" href="{{path('home')}}">Accueil
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-2" href="{{path('home')}}">
+                                La Carte
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-2" href="{{path('home')}}">Réserver</a>
+                        </li>
+                        {%  if not app.user %}
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="{{path('home')}}">Se connecter</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link me-2" href="{{path('home')}}">Se déconnecter</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
     </body>
 </html>
