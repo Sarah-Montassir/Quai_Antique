@@ -15,4 +15,15 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+    #[Route('/carte', name: 'carte')]
+    public function carte(): Response
+    {
+        return $this->render('home/carte.html.twig');
+    }
+
+    #[Route('/reservation', name: 'reservation')]
+    public function reservation(): Response
+    {
+        return $this->render('home/reservation.html.twig');
+    }
 }
