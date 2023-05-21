@@ -43,11 +43,11 @@
                         </li>
                         {%  if not app.user %}
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="{{path('home')}}">Se connecter</a>
+                                <a class="nav-link me-2" href="{{path('login')}}">Se connecter</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="{{path('home')}}">Se déconnecter</a>
+                                <a class="nav-link me-2" href="{{path('logout')}}">Se déconnecter</a>
                             </li>
                         {% endif %}
                     </ul>
