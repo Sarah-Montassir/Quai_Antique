@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -54,8 +54,18 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Contenu de la page -->
+
         <div class="container">
             {% block body %}{% endblock %}
         </div>
+
+        <!-- Footer -->
+        {% block footer %}
+           {{ render(controller('App\\Controller\\FooterController::getFooter')) }}
+        {% endblock %}
+
+        <script src="{{ asset('js/caroussel.js') }}"></script>
     </body>
 </html>

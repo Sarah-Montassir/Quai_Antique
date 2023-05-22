@@ -17,7 +17,7 @@ class Picture
     private ?string $pictureName = null;
 
     #[ORM\Column]
-    private ?bool $isDisplayed = null;
+    private bool $isDisplayed;
 
     public function getId(): ?int
     {
@@ -36,7 +36,7 @@ class Picture
         return $this;
     }
 
-    public function isIsDisplayed(): ?bool
+    public function isIsDisplayed(): bool
     {
         return $this->isDisplayed;
     }

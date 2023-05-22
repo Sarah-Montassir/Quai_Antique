@@ -17,12 +17,13 @@
         {{ form_row(registrationForm.email, {'attr': {'class': 'form-control', 'autocomplete': 'email'}}) }}
         {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'autocomplete': 'new-password'}}) }}
         {{ form_row(registrationForm.agreeTerms) }}
-        {{ form_row(registrationForm.submit) }}
         <p>Déjà inscrit ?<span><button><a href="{{ path('login') }}">Se connecter</a></button></span></p>
-        <button type="submit" class="btn">Register</button>
+       {#  <button type="submit" class="btn">Register</button>#}
         {{ form_end(registrationForm) }}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('registration') }}">
 
     </div>
 
 {% endblock %}
+
+
