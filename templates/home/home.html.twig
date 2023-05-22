@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% if app.user %}
+        <h1>Bonjour {{ app.user.firstname }}</h1>
+    {% endif %}
+    <h1>Quai Antique</h1>
+
+    <div class="carousel">
+       {% for picture in pictures %}
+           {% if picture.isDisplayed %}
+                <div class="slide">
+                    <img src="{{ asset('upload/' ~ picture.pictureName) }}" alt="{{ picture.pictureName }}" class="picture-display">
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+
+

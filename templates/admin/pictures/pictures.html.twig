@@ -1,0 +1,22 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Carousselle Admin{% endblock %}
+
+{% block body %}
+    {% if pictures | length == 0 %}
+        <a href="{{ path('app_add_admin_pictures') }}">Ajouter des images</a>
+    {% endif %}
+    <div class="grid-layout">
+    {% for picture in pictures %}
+        <div class="card mb-3">
+            <img src="{{ asset('upload/' ~ picture.pictureName) }}" alt="{{ picture.pictureName }}" class="picture-display">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{{ path('app_hide_picture', {id: picture.id}) }}" class="card-link">{{ picture.isDisplayed ? 'Masquer' : 'Afficher' }}</a>
+                <a href="{{ path('app_delete_admin_pictures', {id: picture.id}) }}" class="card-link">Supprimer l'image</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

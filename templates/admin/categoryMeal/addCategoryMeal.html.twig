@@ -1,0 +1,11 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Categorie de plat{% endblock %}
+
+{% block body %}
+    {{ form_start(categoryMealForm) }}
+    {{ form_row(categoryMealForm.name) }}
+    <button class="btn btn-lg btn-primary" type="submit">Ajouter la catégorie de <plat></plat></button>
+
+    {{ form_end(categoryMealForm) }}
+{% endblock %}

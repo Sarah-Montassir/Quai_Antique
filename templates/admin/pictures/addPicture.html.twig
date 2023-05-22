@@ -1,0 +1,12 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Carousselle Admin{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.picture) }}
+    {{ form_row(form.isDisplayed) }}
+    <button class="btn btn-lg btn-primary" type="submit">Ajouter image</button>
+
+    {{ form_end(form) }}
+{% endblock %}

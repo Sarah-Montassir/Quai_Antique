@@ -1,0 +1,22 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="grid-layout">
+        {% for meal in meals %}
+
+            <div class="card mb-3">
+                <h3 class="card-header">{{ meal.title }}</h3>
+                <div class="card-body">
+                    <h6 class="card-subtitle text-muted">Prix : <span>{{ meal.price }} €</span></h6>
+                    <p>{{ meal.description }}</p>
+                    <a href="#" class="card-link">Modifier</a>
+                    <a href="#" class="card-link">Supprimer</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Type de plat : <span>{{ meal.mealName }}</span>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

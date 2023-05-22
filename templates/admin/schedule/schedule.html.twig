@@ -1,0 +1,9 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    <div style="display: flex; flex-direction: row; gap:20px">
+        {% for day in neededScheduledDays %}
+            <a href="{{ path('app_post_admin_schedule', { day: day })}}">{{ day }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

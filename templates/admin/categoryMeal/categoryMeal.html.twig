@@ -1,0 +1,17 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="grid-layout">
+        {% for categoryMeal in categoryMeals %}
+            <div class="card mb-3">
+                <h3 class="card-header">{{ categoryMeal.name }}</h3>
+                <div class="card-body">
+                    <a href="#" class="card-link">Modifier</a>
+                    <a href="{{ method_path('patch_category_meal', { id : categoryMeal.id }, 'PATCH' ) }}" class="card-link">Éditer</a>
+                    <a href="#" class="card-link">Supprimer</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ path('app_add_admin_pictures') }}">Ajouter des catégories de plat</a>
+{% endblock %}
