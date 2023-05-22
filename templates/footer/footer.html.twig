@@ -1,0 +1,52 @@
+<footer class="footer bg-light fixed-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Horaires d'ouverture</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Midi</th>
+                            <th>Soir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for schedule in restaurantSchedule %}
+                            <tr>
+                                <th class="text-muted">
+                                    {{ schedule.day.value }}
+                                </th>
+                               {% if schedule.isOpen %}
+                                    <th class="text-muted">
+                                        <span>{{ schedule.noonTimeStart|date('H:i') }} - {{ schedule.noonTimeEnd|date('H:i') }}
+                                    </th>
+                                    <th class="text-muted">
+                                        {{ schedule.eveningTimeStart|date('H:i') }} - {{ schedule.eveningTimeEnd|date('H:i') }}
+                                    </th>
+                                {% else %}
+                                    <th colspan="2">Fermé</th>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+
+{#                <p class="text-muted">{{ schedule.day.value }} <span>{{ schedule.noonTimeStart|date('H:i') }} - {{ schedule.noonTimeEnd|date('H:i') }}</span></p>#}
+{#                <span class="text-muted">{{ schedule.eveningTimeStart|date('H:i') }} - {{ schedule.eveningTimeEnd|date('H:i') }}</span>#}
+                </table>
+
+            </div>
+            <div class="col-md-4">
+                <h3>Adresse</h3>
+                <p class="text-muted">123 Rue de Restaurant, Chambéry</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Contact</h3>
+                <p class="text-muted">01.23.45.67.89</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-legal text-center bg-secondary text-white">
+        <p style="margin-bottom: unset !important;">© 2023 Quai Antique. Tous droits réservés.</p>
+    </div>
+</footer>
